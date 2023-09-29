@@ -57,7 +57,10 @@ export default function WithSubnavigation() {
           onClick={() => router.push('/')}
             textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
             fontFamily={'heading'}
-            color={useColorModeValue('gray.800', 'white')}>
+            fontWeight={"600"}
+            fontSize={'xl'}
+            
+            color={useColorModeValue('green.400', 'white')}>
             Huy Thanh
           </Text>
 
@@ -80,10 +83,10 @@ export default function WithSubnavigation() {
             fontSize={'sm'}
             fontWeight={600}
             color={'white'}
-            bg={'pink.400'}
+            bg={'green.400'}
             href={'#'}
             _hover={{
-              bg: 'pink.300',
+              bg: 'green.300',
             }}>
             Sign Up
           </Button>
@@ -203,13 +206,17 @@ const MobileNav = () => {
 
 const MobileNavItem = ({ label, children, href }: NavItem) => {
   const { isOpen, onToggle } = useDisclosure()
-
+  const router=useRouter();
   return (
     <Stack spacing={4} onClick={children && onToggle}>
       <Box
         py={2}
-        as="a"
-        href={href ?? '#'}
+        onClick={() => {
+            if (href) {
+              
+              router.push(href);
+            }
+          }}
         justifyContent="space-between"
         alignItems="center"
         _hover={{
@@ -239,7 +246,12 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           align={'start'}>
           {children &&
             children.map((child) => (
-              <Box as="a" key={child.label} py={2} href={child.href}>
+              <Box  key={child.label} py={2} onClick={() => {
+                if (child.href) {
+                  
+                  router.push(child.href);
+                }
+              }}>
                 {child.label}
               </Box>
             ))}
