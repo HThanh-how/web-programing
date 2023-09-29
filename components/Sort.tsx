@@ -19,9 +19,11 @@ export default function Home() {
   return (
     <Box p={15}>
       <Text p={4}>Please Input Your Number</Text>
-      <Input p={4} value={inputValue} onChange={handleInputChange} />
+      <Input p={4} ml={4} w={"40vw"} value={inputValue} onChange={handleInputChange} />
       <Text p={4} >Sorted Numbers Min to Max: {sortedNumbers.join(', ')}</Text>
       <Text p={4}>Sorted Numbers Max to Min: {sortedNumbers.reverse().join(', ')}</Text>
+    <Text p={4} >Max: {sortedNumbers[0]} </Text>
+    <Text p={4} >Min: {sortedNumbers.reverse()[0]} </Text>
     </Box>
   );
 }
