@@ -16,6 +16,7 @@ import {
 export default function CallToActionWithAnnotation() {
   return (
     <>
+              <title>Trang chủ</title>
       <Container maxW={'3xl'}>
         <Stack
           as={Box}

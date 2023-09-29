@@ -827,6 +827,7 @@ const Illustration = (props: IconProps) => {
 export default function CallToActionWithIllustration() {
   return (
     <Container maxW={'5xl'}>
+                <title>Lab 1.4</title>
       <Stack
         textAlign={'center'}
         align={'center'}

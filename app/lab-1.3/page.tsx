@@ -3,6 +3,6 @@ import Sort from '@/components/Sort'
 
 export default function Home() {
   return (
-    <Sort/>
+    <><Sort /><title>Lab 1.3</title></>
   )
 }

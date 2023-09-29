@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import NavBar from '@/components/NavBar'
 import Footer from '@/components/Footer' 
+import Head from 'next/head'
 const inter = Inter({ subsets: ['latin'] })
 
 
@@ -21,7 +22,9 @@ export default function RootLayout({
           {children}
           <Footer/>
         </ChakraProvider>
-        
+       
+
+      
         </body>
     </html>
   )
