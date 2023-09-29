@@ -15,6 +15,7 @@ import {
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
+  Link,
 } from '@chakra-ui/react'
 import { useRouter } from 'next/navigation'
 import {
@@ -51,8 +52,9 @@ export default function WithSubnavigation() {
             aria-label={'Toggle Navigation'}
           />
         </Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }} onClick={() => router.push('/')} cursor={"pointer"}>
+        <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}  cursor={"pointer"}>
           <Text
+          onClick={() => router.push('/')}
             textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
             fontFamily={'heading'}
             color={useColorModeValue('gray.800', 'white')}>
@@ -148,20 +150,28 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
 const router = useRouter()
   return (
     <Box
-      as="a"
-      href={href}
-    //   onClick={() => router.push('/lab-1.1')}
+    //   as="a"
+    //   href={href}
+
       role={'group'}
       display={'block'}
       p={2}
       rounded={'md'}
-      _hover={{ bg: useColorModeValue('green.50', 'gray.900') }}>
-      <Stack direction={'row'} align={'center'}>
+      _hover={{ bg: useColorModeValue('green.50', 'gray.900') }} 
+      onClick={() => {
+        if (href) {
+          
+          router.push(href);
+        }
+      }}
+    >
+      <Stack direction={'row'} align={'center'} >
         <Box>
           <Text
             transition={'all .3s ease'}
             _groupHover={{ color: 'green.400' }}
-            fontWeight={500}>
+            fontWeight={500}
+            >
             {label}
           </Text>
           <Text fontSize={'sm'}>{subLabel}</Text>
@@ -253,22 +263,22 @@ const NAV_ITEMS: Array<NavItem> = [
       {
         label: 'Lab 1.1',
         subLabel: ' Install	a	Web Server	+	Setup	a	New	Website',
-        href: 'lab-1.1',
+        href: '/lab-1.1',
       },
       {
         label: 'Lab 1.2',
         subLabel: 'Exercises	with	HTML	and	CSS',
-        href: 'lab-1.2',
+        href: '/lab-1.2',
       },
       {
         label: 'Lab 1.3',
         subLabel: 'Exercises	with	JavaScript',
-        href: 'lab-1.3',
+        href: '/lab-1.3',
       },
       {
         label: 'Lab 1.4',
         subLabel: 'Website	Layout',
-        href: 'lab-1.4',
+        href: '/lab-1.4',
       },
     ],
   },
