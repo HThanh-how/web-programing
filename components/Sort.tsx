@@ -7,8 +7,8 @@ export default function Home() {
   const [sortedNumbers, setSortedNumbers] = useState<number[]>([]);
 
   useEffect(() => {
-    const numbersArray = inputValue.split(/[ ,]+/).map(Number); // Tách chuỗi đầu vào thành một mảng các số
-    const sortedArray = numbersArray.filter(number => !Number.isNaN(number)).sort((a, b) => b - a); // Loại bỏ các ký tự không phải số và sắp xếp mảng
+    const numbersArray = inputValue.split(/[ ,]+/).map(Number); 
+    const sortedArray = numbersArray.filter(number => !Number.isNaN(number)).sort((a, b) => b - a); 
     setSortedNumbers(sortedArray);
   }, [inputValue]);
 

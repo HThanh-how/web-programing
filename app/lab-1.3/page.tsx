@@ -6,3 +6,4 @@ export default function Home() {
     <><Sort /><title>Lab 1.3</title></>
   )
 }
+
